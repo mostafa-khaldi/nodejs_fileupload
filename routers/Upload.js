@@ -6,7 +6,7 @@ const fsx = require('fs-extra')
 const multer = require('multer')
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        const dirs = `${req.body.dir}/${req.body.subdir}`
+        const dirs = `${req.query.dir}/${req.query.subdir}`
         let path = 'uploads/' + dirs
         fsx.ensureDirSync(path)
         cb(null, path)
