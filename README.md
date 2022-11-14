@@ -5,7 +5,8 @@ a simple code to upload files to a NodeJS server
 
 ### To upload a single file
 POST /api/upload/single <br/>
-The file key in the formdata `file`
+The file key in the formdata `file` <br/>
+Params `dir` and `subdir` for the main directory and subdirectory, example: dir: "user", subdir: "blog_images"
 
 ### To upload multiple files
 POST /api/upload/bulk <br/>
@@ -14,6 +15,7 @@ The file key in the formdata `file`
 ### To delete a single file
 DELETE /api/image <br/>
 Params `path` of the file uploaded
+Params `dir` and `subdir` for the main directory and subdirectory, example: dir: "user", subdir: "blog_images"
 
 ## Prerequisits 
 1- Set the property `x-dataupload-key` in the request `header` carrying the API key value <br/>
