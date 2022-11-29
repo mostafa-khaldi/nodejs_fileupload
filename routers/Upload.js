@@ -33,7 +33,7 @@ router.post('/api/upload/bulk', auth_data, upload.array('file'), (req, res) => {
 })
 
 router.delete('/api/image', auth_data, (req, res) => {
-    let path = req.query.path.split(`${req.protocol}//${req.headers.host}/`)[1]
+    let path = req.query.path.split(`${req.protocol}://${req.headers.host}/`)[1]
     fs.unlink(path, err => {
         if (err) {
             console.log(err)
