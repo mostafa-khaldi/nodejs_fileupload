@@ -20,7 +20,7 @@ const upload = multer({ storage })
 
 router.post('/api/upload/single', auth_data, upload.single('file'), (req, res) => {
     try {
-        res.send({ filename: `${req.protocol}//${req.headers.host}/${req.file.path}` })
+        res.send({ filename: `${req.protocol}://${req.headers.host}/${req.file.path}` })
     } catch (err) {
         console.log(err)
         res.status(500).send({ message: 'Server error' })
@@ -28,7 +28,7 @@ router.post('/api/upload/single', auth_data, upload.single('file'), (req, res) =
 })
 
 router.post('/api/upload/bulk', auth_data, upload.array('file'), (req, res) => {
-    let paths = req.files.map(item => `${req.protocol}//${req.headers.host}/${item.path}`)
+    let paths = req.files.map(item => `${req.protocol}://${req.headers.host}/${item.path}`)
     res.send(paths)
 })
 
